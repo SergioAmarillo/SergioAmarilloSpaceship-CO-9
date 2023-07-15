@@ -31,17 +31,14 @@ class Enemy(Sprite):
         if self.movement == RIGHT:
            self.rect.x += self.speed_x
         else:
-           self.move_x -= self.speed_x
+           self.rect.x -= self.speed_x
 
         self.update_movement()
         print(self.movement)
         print(self.moving_index)
         if self.rect.y >= SCREEN_HEIGHT:
             enemies.remove(self)
-        self.update_movement()
-        if self.rect.y >= SCREEN_HEIGHT:
-            enemies.remove(self)
-
+    
     def update_movement(self):
         self.moving_index +=1
         if self.rect.right >= SCREEN_WIDTH:

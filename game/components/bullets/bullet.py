@@ -1,6 +1,5 @@
 import pygame
 from pygame.sprite import Sprite
-from game.components import bullets
 
 from game.utils.constants import BULLET_ENEMY, ENEMY_TYPE, SCREEN_HEIGHT
 
@@ -14,10 +13,9 @@ class Bullet(Sprite):
         self.image = pygame.transform.scale(self.BULLETS[self.owner], (10, 10))
         self.rect= self.image.get_rect()
         self.rect.center = spaceship.rect.center 
-        self.owner = spaceship.rect.center
 
 
-    def update(self, game):
+    def update(self, bullets):
         if self.owner == ENEMY_TYPE:
            self.rect.y += self.SPEED
            if self.rect.y >= SCREEN_HEIGHT:
